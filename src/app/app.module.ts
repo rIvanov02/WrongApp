@@ -9,11 +9,13 @@ import { environment } from './environment/environment.prod';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user-routing.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,8 @@ import { UserRoutingModule } from './user/user-routing.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     CoreModule, UserModule,
-    UserRoutingModule
+    UserRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
