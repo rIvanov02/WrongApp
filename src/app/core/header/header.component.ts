@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  // constructor(public firebaseAuth: AngularFireAuth, private router: Router) { }
 
-  // logout() {
-  //   this.firebaseAuth.signOut();
-  //   this.router.navigate(['/'])
-  //   }
 }

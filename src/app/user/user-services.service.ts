@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +26,9 @@ export class UserServicesService {
       })
   }
 
-  logout(): void{ 
-    this.firebase.signOut();
+  async logout() { 
+    await this.firebase.signOut();
+    this.isLoggedIn = false;
     localStorage.removeItem('user');
   }
 }

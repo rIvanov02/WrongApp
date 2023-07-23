@@ -24,14 +24,14 @@ export class RegisterComponent {
   })
 
 
-  constructor(private fb: FormBuilder, private router: Router, public userServices: UserServicesService) { }
+  constructor(private fb: FormBuilder, private router: Router, private userServices: UserServicesService) { }
   
-  async onRegister() { 
+   onRegister() { 
     if (this.form.invalid) { 
       return;
     }
     const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
 
-    await this.userServices.register(email!, password!).then(() => { this.router.navigate(['/login'])})
+     this.userServices.register(email!, password!).then(() => { this.router.navigate([''])})
   }
 }
