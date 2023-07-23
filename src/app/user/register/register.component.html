@@ -1,60 +1,75 @@
 <div class="login-box">
     <h2>Register</h2>
-    <form  >
+    <form [formGroup]='form' (ngSubmit)="onRegister()">
       <fieldset>
+
+        <!-- username -->
       <div class="user-box">
-        <input  type="text"
+        <input  
+        type="text"
         name="username"
         id="username"
+        formControlName="username"
         required=""
         />
         <label>Username</label>
       </div>
 
+      <!-- email -->
       <div class="user-box">
         <input  
           type="email"
           name="email"
           id="email"
+          formControlName="email"
           required=""
           />
         <label>Email</label>
       </div>
+
+      <!-- Phone -->
       <div class="user-box">
         <input  type="text"
-        name="tel"
-        id="tel"
+        name="phone"
+        id="phone"
+        formControlName="phone"
         required=""
         />
         <label>Phone</label>
       </div>
 
+        <ng-container formGroupName="passGroup">
 
-      <div class="user-box">
-        <input  
-        type="password"
-        name="password"
-        id="password">
-        <label>Password</label>
-      </div>
+          <!-- Password -->
+        <div class="user-box">
+          <input  
+          type="password"
+          name="password"
+          formControlName="password"
+          id="password">
+          <label>Password</label>
+        </div>
+  
+        <!-- rePassword -->
+        <div class="user-box">
+          <input 
+          type="password"
+          name="rePassword"
+          formControlName="rePassword"
+          id="rePassword">
+          <label>Repeat Password</label>
+        </div>
+
+        </ng-container>
 
 
-      <div class="user-box">
-        <input 
-        type="password"
-        name="rePassword"
-        id="rePassword">
-        <label>Repeat Password</label>
-      </div>
-
-
-      <a routerLink="/login">
+      <button>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         Submit
-      </a>
+      </button>
     </fieldset>
     </form>
   </div>
