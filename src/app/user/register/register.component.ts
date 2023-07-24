@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder,NgForm } from '@angular/forms';
+import { FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServicesService} from '../user-services.service'
+import { UserServicesService } from '../user-services.service'
+import { matchPassValidator } from 'src/app/validators/match-passwords-validator';
 
 
 
@@ -14,24 +15,34 @@ export class RegisterComponent {
 
 
   form = this.fb.group({
-    username: [''],
-    email: [''],
+    username: ['' , [Validators.required , Validators.minLength(5)]],
+    email: ['' , [Validators.required ]],
     phone: [''],
     passGroup: this.fb.group({
-      password: [''],
-      rePassword: [''],
-    })
+      password: ['' , [Validators.required]],
+      rePassword: ['', [Validators.required]],
+    },
+      {
+        validators:[matchPassValidator('password','rePassword')]
+      }
+    )
   })
 
 
   constructor(private fb: FormBuilder, private router: Router, private userServices: UserServicesService) { }
-  
-   onRegister() { 
-    if (this.form.invalid) { 
+  onRegister() {
+     
+    const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
+    if (this.form.invalid) {
+      if (password !== rePassword) {
+        alert("Passwords do not match");
+      }
       return;
     }
-    const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
 
-     this.userServices.register(email!, password!).then(() => { this.router.navigate([''])})
+    
+    this.userServices.register(email!, password!).then(()=>this.router.navigate(['']));
+  
+    
   }
 }

@@ -8,6 +8,7 @@ const routes: Routes = [
     pathMatch: 'full', 
     component: HomeComponent
   },
+  
 ];
 
 @NgModule({

@@ -10,16 +10,15 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private userService: UserServicesService,) { }
+  constructor( private userService: UserServicesService,) { }
   
-  onLogin(form:NgForm) { 
+  onLogin(form: NgForm) { 
+    debugger
+    const { email, password } = form.value
+
     if (form.invalid) { return }
 
-    const { email, password } = form.value
-    
-    this.userService.logIn(email, password).then(() =>{
-      this.router.navigate([''])
-     }) 
+      this.userService.logIn(email, password)
 
   }
 }

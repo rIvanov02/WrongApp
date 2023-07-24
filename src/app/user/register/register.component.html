@@ -14,6 +14,10 @@
         />
         <label>Username</label>
       </div>
+      <ng-container *ngIf="form.get('username')?.touched">
+        <p class="error" *ngIf="form.get('username')?.errors?.['required']" >Username is required!</p>
+        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']" >Username too short!</p>
+    </ng-container>
 
       <!-- email -->
       <div class="user-box">
@@ -26,6 +30,10 @@
           />
         <label>Email</label>
       </div>
+
+      <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+    </ng-container>
 
       <!-- Phone -->
       <div class="user-box">
@@ -49,6 +57,11 @@
           id="password">
           <label>Password</label>
         </div>
+
+        <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+          <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']" >Password is required!</p>
+          <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']"  >Password must be at least 5 chars long!</p>
+      </ng-container>
   
         <!-- rePassword -->
         <div class="user-box">
@@ -59,6 +72,14 @@
           id="rePassword">
           <label>Repeat Password</label>
         </div>
+
+        <ng-container  *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+
+          <p class="error" 
+          *ngIf="form.get('passGroup')?.get('rePassword')?.errors?.['matchPassValidator'] 
+          || form.get('passGroup')?.get('rePassword')?.errors?.['required']"
+          >Repeat Password does not match password!</p>
+      </ng-container>
 
         </ng-container>
 

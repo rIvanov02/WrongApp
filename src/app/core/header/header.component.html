@@ -6,17 +6,18 @@
         <div class="mini-navbar">
 
             <ul>
-                <!-- <ng-container *ngIf="!firebase.user"> -->
+                <ng-container *ngIf="!isLoggedIn">
                     <li>
                         <a routerLink="/login">Login</a>
                     </li>
                     <li>
                         <a routerLink="/register">Register</a>
                     </li>
-                <!-- </ng-container>
-                <li *ngIf="firebase.user">
-                    <a >Logout</a>
-                </li> -->
+                </ng-container>
+
+                <li *ngIf="isLoggedIn">
+                    <a (click)="onLogout()">Logout</a>
+                </li>
             </ul>
 
         </div>
