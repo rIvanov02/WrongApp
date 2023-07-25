@@ -2,7 +2,7 @@ html {
     height: 100%;
   }
   body {
-    margin:0;
+    margin-top: 100px;;
     padding:0;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
@@ -10,10 +10,12 @@ html {
   
   .login-box {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     width: 400px;
     padding: 40px;
+    scroll-margin-top: 100px;
+    
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,.5);
     box-sizing: border-box;

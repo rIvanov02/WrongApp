@@ -1,9 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
 footer {
-    background: rgb(0, 212, 255);
-    ;
+    background: black;
+    margin-left: -0.5em;
     margin-top: 1em;
-    position:absolute;
+    position:fixed;
     bottom: 0;
     width: 100%;
     max-width:inherit;
@@ -14,6 +14,8 @@ footer p {
     padding: 0;
     font-size: 0.7em;
     text-align: center;
+    color: white;
+    font-family: 'Vast Shadow', cursive;
 }
 
 footer span {

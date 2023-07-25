@@ -1,25 +1,37 @@
 <header>
-    <div class="mini-navbar-wrap">
-        <div class="logo-wrap">
-            <p class="logo" routerLink="/" ><span class="logo">Wrong Generation</span></p>
-        </div>
-        <div class="mini-navbar">
+  <div class="sales">
+    <h3>Summer Sale -99%</h3>
+  </div>
 
-            <ul>
-                <ng-container *ngIf="!isLoggedIn">
-                    <li>
-                        <a routerLink="/login">Login</a>
-                    </li>
-                    <li>
-                        <a routerLink="/register">Register</a>
-                    </li>
-                </ng-container>
+  <div class="logo-wrap">
+    <a class="logo" routerLink="">
+      <span class="logo">Wrong Generation</span>
+    </a>
+  </div>
+<nav class="navbar">
+  <div class="shop-options">
+    <section class="section-shop">
 
-                <li *ngIf="isLoggedIn">
-                    <a (click)="onLogout()">Logout</a>
-                </li>
-            </ul>
+      <div class="shop-activities">
+        <ul>
+          <li>Basket</li>
+          <li>User</li>
+          <li>Favorites</li>
+        </ul>
+      </div>
 
-        </div>
-    </div>
+
+      <div class="user-settings">
+        <ul>
+          <li>Collection</li>
+          <li>Clothes</li>
+          <li>Promos</li>
+        </ul>
+      </div>
+
+
+    </section>
+  </div>
+</nav>
+<hr>
 </header>
