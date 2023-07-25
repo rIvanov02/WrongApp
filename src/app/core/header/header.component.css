@@ -1,15 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap");
 
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
 header {
-  z-index: 1;
   position: fixed;
-  width: 101%;
-  margin-top: -1em;
-  margin-left: -1em;
-  background: black;
+  top: 0; left: 0; right: 0;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  padding: 20px 7%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
 }
 .sales {
   background-color: orange;
+
 }
 .sales h3 {
   color: white;
@@ -27,44 +35,119 @@ header {
 
 .logo-wrap {
   letter-spacing: 0.5em;
+  background: inherit;
   margin: 0.5em 0;
   text-align: center;
   padding: 0.5em;
+  background-color: black;
 }
 
-.shop-options {
-  width: 100%;
-  font-family: "Vast Shadow", cursive;
-  color: black;
-  display: inline-block;
-  margin-left: -28%;
-}
 .navbar {
-  background-color: white;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vast Shadow' , cursive;
+    text-transform: capitalize;
+    text-decoration: none;
+    
+}
+header .navbar ul{
+    list-style: none;
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+    border-right: 1px solid  black;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: black;
+    display: block;
+}
+header .navbar ul li a:hover{
+    background: whitesmoke;
+}
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: whitesmoke;
+    
+    display: none;
 }
 
-.section-shop div {
-  float: right;
-  margin-left: 20%;
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 1px solid white(0,0,0,.1);
 }
-.shop-activities ul{
-    padding-left: 95%;
+header .navbar ul li ul li a{
+    color: black;
+}
+header .navbar ul li ul li a:hover{
+    background: white;
+    color: black;
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
 }
 
-header ul {
-  padding: 0;
-  display: flex;
-  align-items: center;
-  width: 75%;
-  margin: auto;
+header .navbar ul li:hover>ul{
+    display: initial;
 }
 
-header ul span {
-  color: white;
-  padding: 0.5em;
+
+ #menu-bar{
+    display: none;
 }
-header li {
-  list-style: none;
-  margin: 0.35em;
-  padding: 0 0.95em;
+
+header label{
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    display: none;
 }
+
+ 
+
+
+
+
+
+
+
+
+
+@media(max-width: 991px){
+    header{
+        padding: 20px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: black;
+        border-top: 1px solid white;
+        display: none;
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+    header .navbar ul li ul li {
+        background:black;
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+        display: initial;
+    }
+} 

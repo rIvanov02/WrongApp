@@ -1,0 +1,12 @@
+html ,body{
+    background-color: whitesmoke;
+}
+div{
+    padding-top:50%;
+    background-color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+}
+div image{
+    margin-top: -80%;
+}
