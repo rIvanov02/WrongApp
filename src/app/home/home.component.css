@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 html ,body{
     background-color: whitesmoke;
 }
 div{
-    padding-top:50%;
+    padding-top:20%;
     background-color: whitesmoke;
-    align-items: center;
     justify-content: center;
+    display: flex;
+    position: relative;
 }
-div image{
-    margin-top: -80%;
+
+h1{
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    font-size: 60px;
+    letter-spacing: 10px;
 }
