@@ -13,7 +13,6 @@ export class LoginComponent {
   constructor( private userService: UserServicesService,) { }
   
   onLogin(form: NgForm) { 
-    debugger
     const { email, password } = form.value
 
     if (form.invalid) { return }

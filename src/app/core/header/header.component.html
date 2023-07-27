@@ -9,40 +9,68 @@
     </a>
   </div>
 
-  <input type="checkbox" id="menu-bar">
+  <input type="checkbox" id="menu-bar" />
   <label for="menu-bar">Menu</label>
-<hr>
+  <hr />
   <nav class="navbar">
     <ul>
-      <li><a href="#">home</a>
-      <ul>
-        <li><a href="">Neshto si</a></li>
-        <li><a href="">Neshto si</a>
-        <ul>
-          <li><a href="">Oshte neshto si</a></li>
-          <li><a href="">Oshte neshto si</a></li>
-          <li><a href="">Oshte neshto si</a></li>
+      <li>
+        <a href="#">home</a>
+        <ul class="options">
+          <li><a href="">{{user.username}}</a></li>
+          <li>
+            <a href="">Neshto si</a>
+            <ul>
+              <li><a href="">Oshte neshto si</a></li>
+              <li><a href="">Oshte neshto si</a></li>
+              <li><a href="">Oshte neshto si</a></li>
+            </ul>
+          </li>
+          <li><a href="">Neshto si</a></li>
         </ul>
-        </li>
-        <li><a href="">Neshto si</a></li>
-      </ul>
       </li>
-      <li> <a href="#">about</a></li>
-      <li> <a href="#">Pages</a></li>
-      <li> <a href="#">Gallery</a></li>
+      <li><a href="#">about</a></li>
+      <li><a href="#">Pages</a></li>
+      <li><a href="#">Gallery</a></li>
     </ul>
 
     <ul class="icons">
       <li>
-        <a ><img src="../../../assets/images/favIcon.jpg"></a>
-        <a ><img src="../../../assets/images/basketIcon.jpg"></a>
-        <a ><img src="../../../assets/images/user.jpg">
-        <ul>
-          <li class="user-login"><a href="">Login</a></li>
-        </ul>
+        <ng-container *ngIf="isLoggedIn">
+          <a>Hello , {{user.username}}</a>
+          <a><img src="../../../assets/images/favIcon.jpg" /></a>
+          <a><img src="../../../assets/images/basketIcon.jpg" /></a>
+        </ng-container>
+        <a
+          ><img src="../../../assets/images/user.jpg" />
+          <ng-container *ngIf="!isLoggedIn">
+            <ul [ngStyle]="{'left':'-5em'}">
+              <ng-container *ngIf="!isLoggedIn">
+                <li class="user-login"><a routerLink="/login">Log in</a></li>
+                <li><a routerLink="/register">Register</a></li>
+  
+              </ng-container>
+              <ng-container *ngIf="isLoggedIn">
+                <li class="user-login"><a routerLink="">Profile</a></li>
+                <li><a (click)="onLogout()" routerLink="">Log out</a></li>
+              </ng-container>
+            </ul>
+          </ng-container>
+          <ng-container *ngIf="isLoggedIn">
+            <ul [ngStyle]="{'left':'1em'}">
+              <ng-container *ngIf="!isLoggedIn">
+                <li class="user-login"><a routerLink="/login">Log in</a></li>
+                <li><a routerLink="/register">Register</a></li>
+  
+              </ng-container>
+              <ng-container *ngIf="isLoggedIn">
+                <li class="user-login"><a routerLink="">Profile</a></li>
+                <li><a (click)="onLogout()" routerLink="">Log out</a></li>
+              </ng-container>
+            </ul>
+          </ng-container>
         </a>
       </li>
     </ul>
   </nav>
-
 </header>

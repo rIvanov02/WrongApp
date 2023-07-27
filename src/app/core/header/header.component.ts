@@ -9,6 +9,10 @@ import { UserServicesService } from 'src/app/user/user-services.service';
 })
 export class HeaderComponent {
 
+  get user() { 
+    return this.userServices.user
+  }
+
   constructor(private userServices: UserServicesService, private router: Router) { }
   
   get isLoggedIn(): boolean { 

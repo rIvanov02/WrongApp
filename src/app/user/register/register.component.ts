@@ -6,14 +6,18 @@ import { matchPassValidator } from 'src/app/validators/match-passwords-validator
 
 
 
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
-
+  
+  constructor(private fb: FormBuilder, private router: Router, private userServices: UserServicesService) { }
+    
+    
   form = this.fb.group({
     username: ['' , [Validators.required , Validators.minLength(5)]],
     email: ['' , [Validators.required ]],
@@ -29,7 +33,6 @@ export class RegisterComponent {
   })
 
 
-  constructor(private fb: FormBuilder, private router: Router, private userServices: UserServicesService) { }
   onRegister() {
      
     const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
@@ -40,9 +43,14 @@ export class RegisterComponent {
       return;
     }
 
+    this.userServices.register(username!, email!, phone!, password!).then(() => this.router.navigate(['']));
     
-    this.userServices.register(email!, password!).then(()=>this.router.navigate(['']));
-  
-    
+   
   }
+
+  getUserInfo() { 
+    const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
+    return {username , email, phone}
+  }
+
 }
