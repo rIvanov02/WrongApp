@@ -18,7 +18,7 @@
         <a href="#">home</a>
         <ul class="options">
           <li>
-            <a href="">{{ user.username }}</a>
+            <a href=""></a>
           </li>
           <li>
             <a href="">Neshto si</a>
@@ -38,7 +38,7 @@
 
     <ul class="icons">
       <li>
-        <a *ngIf="isLoggedIn">Hello , {{ user.username }}</a>
+        <a *ngIf="isLoggedIn">Hello ,{{username}}</a>
         <a
           ><img src="../../../assets/images/user.jpg" />
           <ng-container *ngIf="!isLoggedIn">

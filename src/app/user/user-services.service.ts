@@ -10,11 +10,11 @@ import { getDocs } from 'firebase/firestore';
 })
 export class UserServicesService {
   constructor(private firebase: AngularFireAuth, private router: Router, private firestore: Firestore) {
-    this.getUserData()
+    
   }
 
   isLoggedIn = false;
-  user: User = {}
+
 
   // USER OPERATIONS
 
@@ -35,9 +35,6 @@ export class UserServicesService {
   }
 
   async register(username: string, email: string, phone: string, password: string) { 
-    this.user.username = username
-    this.user.email = email
-    this.user.phone = phone
     const usersCollection = collection(this.firestore, "users")
     try {
       
@@ -68,7 +65,7 @@ export class UserServicesService {
 
 
   //CRUD OPERATIONS
-  async getUserData(){
+  async getUserData(): Promise< User | undefined>{
     const loggedUserId: string | undefined = (localStorage.getItem('user')?.split('"')[3])
     const usersCollection = collection(this.firestore, "users")
     const snapshot = await getDocs(usersCollection)
@@ -81,7 +78,6 @@ export class UserServicesService {
       userId: loggedUserData?.userId
     }
     return userData
-  
     
   }
   

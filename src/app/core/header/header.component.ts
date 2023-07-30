@@ -9,11 +9,14 @@ import { UserServicesService } from 'src/app/user/user-services.service';
 })
 export class HeaderComponent {
 
-  get user() { 
-    return this.userServices.user
-  }
+  username:string|undefined
 
-  constructor(private userServices: UserServicesService, private router: Router) { }
+  constructor(private userServices: UserServicesService, private router: Router) {
+    this.userServices.getUserData().then((user) => { 
+      this.username = user?.username
+    })
+    console.log(this.username)
+   }
   
   get isLoggedIn(): boolean { 
     return this.userServices.isLoggedIn

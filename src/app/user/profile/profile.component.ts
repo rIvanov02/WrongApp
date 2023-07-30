@@ -17,7 +17,6 @@ export class ProfileComponent {
  
   constructor(private fb: FormBuilder, private userService: UserServicesService) {
     this.userService.getUserData().then((user) => { 
-      console.log(user?.username)
       this.data = {
         username: user?.username,
         email: user?.email,
