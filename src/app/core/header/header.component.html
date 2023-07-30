@@ -17,7 +17,9 @@
       <li>
         <a href="#">home</a>
         <ul class="options">
-          <li><a href="">{{user.username}}</a></li>
+          <li>
+            <a href="">{{ user.username }}</a>
+          </li>
           <li>
             <a href="">Neshto si</a>
             <ul>
@@ -36,40 +38,34 @@
 
     <ul class="icons">
       <li>
-        <ng-container *ngIf="isLoggedIn">
-          <a>Hello , {{user.username}}</a>
-          <a><img src="../../../assets/images/favIcon.jpg" /></a>
-          <a><img src="../../../assets/images/basketIcon.jpg" /></a>
-        </ng-container>
+        <a *ngIf="isLoggedIn">Hello , {{ user.username }}</a>
         <a
           ><img src="../../../assets/images/user.jpg" />
           <ng-container *ngIf="!isLoggedIn">
-            <ul [ngStyle]="{'left':'-5em'}">
+            <ul [ngStyle]="{ left: '-5em' }">
               <ng-container *ngIf="!isLoggedIn">
                 <li class="user-login"><a routerLink="/login">Log in</a></li>
                 <li><a routerLink="/register">Register</a></li>
-  
-              </ng-container>
-              <ng-container *ngIf="isLoggedIn">
-                <li class="user-login"><a routerLink="">Profile</a></li>
-                <li><a (click)="onLogout()" routerLink="">Log out</a></li>
               </ng-container>
             </ul>
           </ng-container>
           <ng-container *ngIf="isLoggedIn">
-            <ul [ngStyle]="{'left':'1em'}">
+            <ul [ngStyle]="{ left: '2em', 'padding-right': '2em' }">
               <ng-container *ngIf="!isLoggedIn">
                 <li class="user-login"><a routerLink="/login">Log in</a></li>
                 <li><a routerLink="/register">Register</a></li>
-  
               </ng-container>
               <ng-container *ngIf="isLoggedIn">
-                <li class="user-login"><a routerLink="">Profile</a></li>
+                <li class="user-login"><a routerLink="/profile">Profile</a></li>
                 <li><a (click)="onLogout()" routerLink="">Log out</a></li>
               </ng-container>
             </ul>
           </ng-container>
         </a>
+        <ng-container *ngIf="isLoggedIn">
+          <a><img src="../../../assets/images/favIcon.jpg" /></a>
+          <a><img src="../../../assets/images/basketIcon.jpg" /></a>
+        </ng-container>
       </li>
     </ul>
   </nav>

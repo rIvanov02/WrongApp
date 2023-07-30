@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { UserServicesService } from './user/user-services.service';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { environmentAuth } from './environment/environment';
 import { environment } from './environment/environment.prod';
 
 

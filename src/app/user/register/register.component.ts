@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UserServicesService } from '../user-services.service'
 import { matchPassValidator } from 'src/app/validators/match-passwords-validator';
-
-
-
-
 
 @Component({
   selector: 'app-register',
@@ -15,8 +10,7 @@ import { matchPassValidator } from 'src/app/validators/match-passwords-validator
 })
 export class RegisterComponent {
   
-  constructor(private fb: FormBuilder, private router: Router, private userServices: UserServicesService) { }
-    
+  constructor(private fb: FormBuilder, private userServices: UserServicesService) { }
     
   form = this.fb.group({
     username: ['' , [Validators.required , Validators.minLength(5)]],
@@ -32,7 +26,6 @@ export class RegisterComponent {
     )
   })
 
-
   onRegister() {
      
     const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
@@ -42,15 +35,6 @@ export class RegisterComponent {
       }
       return;
     }
-
-    this.userServices.register(username!, email!, phone!, password!).then(() => this.router.navigate(['']));
-    
-   
+    this.userServices.register(username!, email!, phone!, password!)
   }
-
-  getUserInfo() { 
-    const { username, email, phone, passGroup: { password, rePassword } = {} } = this.form.value;
-    return {username , email, phone}
-  }
-
 }

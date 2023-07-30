@@ -1,0 +1,61 @@
+<div class="login-box">
+  <h2>User Information</h2>
+  <form [formGroup]='form' (ngSubmit)="updateUser()">
+    <fieldset>
+
+      <!-- username -->
+    <div class="user-box">
+      <input  
+      type="text"
+      name="username"
+      id="username"
+      formControlName="username"
+      required=""
+      [ngModel]="data.username"
+      />
+      <label>Username</label>
+    </div>
+    <ng-container *ngIf="form.get('username')?.touched">
+      <p class="error" *ngIf="form.get('username')?.errors?.['required']" >Username is required!</p>
+      <p class="error" *ngIf="form.get('username')?.errors?.['minlength']" >Username too short!</p>
+  </ng-container>
+
+    <!-- email -->
+    <div class="user-box">
+      <input  
+        type="email"
+        name="email"
+        id="email"
+        formControlName="email"
+        required=""
+        [ngModel]="data.email"
+        />
+      <label>Email</label>
+    </div>
+
+    <ng-container *ngIf="form.get('email')?.touched">
+      <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+  </ng-container>
+
+    <!-- Phone -->
+    <div class="user-box">
+      <input  type="text"
+      name="phone"
+      id="phone"
+      formControlName="phone"
+      required=""
+      [ngModel]="data.phone"
+      />
+      <label>Phone</label>
+    </div>
+
+    <button>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Edit
+    </button>
+  </fieldset>
+  </form>
+</div>

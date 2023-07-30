@@ -4,7 +4,6 @@ html ,body{
     background-color: whitesmoke;
 }
 div{
-    padding-top:20%;
     background-color: whitesmoke;
     justify-content: center;
     display: flex;
