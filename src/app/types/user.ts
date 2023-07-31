@@ -3,4 +3,5 @@ export interface User {
     email?: string;
     phone?: string;
     userId?: string;
+    favorites?:Array<Object>
 }

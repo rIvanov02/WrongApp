@@ -3,5 +3,6 @@ export interface Product {
     price?: string;
     description?: string;
     img?: Array<string>;
-    size?:Array<string>
+    size?: Array<string>
+    docId?: string;
 }

@@ -1,6 +1,6 @@
 <div class="login-box">
   <h2>User Information</h2>
-  <form [formGroup]='form' (ngSubmit)="updateUser()">
+  <form [formGroup]='form' (ngSubmit)="updateUser()" >
     <fieldset>
 
       <!-- username -->
@@ -11,7 +11,7 @@
       id="username"
       formControlName="username"
       required=""
-      [ngModel]="data.username"
+      [ngModel]="userData!.username"
       />
       <label>Username</label>
     </div>
@@ -28,7 +28,7 @@
         id="email"
         formControlName="email"
         required=""
-        [ngModel]="data.email"
+        [ngModel]="userData!.email"
         />
       <label>Email</label>
     </div>
@@ -44,7 +44,7 @@
       id="phone"
       formControlName="phone"
       required=""
-      [ngModel]="data.phone"
+      [ngModel]="userData!.phone"
       />
       <label>Phone</label>
     </div>

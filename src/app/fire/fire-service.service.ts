@@ -3,32 +3,21 @@ import { Firestore , collection , addDoc , collectionData, DocumentData,doc,upda
 import { getDocs } from 'firebase/firestore';
 import { User } from '../types/user';
 import { Product } from '../types/product';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireServiceService {
 
-  constructor(private firestore: Firestore) {
-    this.getProducts()
-  }
+  constructor(private firestore: Firestore) {}
 //CRUD OPERATIONS
-async getUserData(): Promise< User | undefined>{
-  const loggedUserId: string | undefined = (localStorage.getItem('user')?.split('"')[3])
-  const usersCollection = collection(this.firestore, "users")
-  const snapshot = await getDocs(usersCollection)
-  const usersData = snapshot.docs.map(doc => doc.data() as User);
-  const loggedUserData = usersData.find(element => element['userId'] == loggedUserId)
-  const userData: User | undefined = {
-    username: loggedUserData?.username,
-    email: loggedUserData?.email,
-    phone: loggedUserData?.phone,
-    userId: loggedUserData?.userId
-  }
-  return userData
   
-}
+  getUserData() {
+    const usersCollection = collection(this.firestore, "users")
+    return collectionData(usersCollection)
+  }
+  
 
 updateUserData(userId:string , newUsername:string , newEmail:string , newPhone:string) { 
   const userDoc = doc(this.firestore, 'users', userId)
@@ -40,20 +29,36 @@ updateUserData(userId:string , newUsername:string , newEmail:string , newPhone:s
   updateDoc(userDoc , updatedUserData)
 }
   
-  productList!: Observable<any>
+
   
 getProducts() {
   const productsCollection = collection(this.firestore, "products");
-  this.productList = collectionData(productsCollection)
+  return collectionData(productsCollection)
 }
   
-  setUser(userId:string , username:string , email:string , phone:string) { 
+setUser(userId:string , username:string , email:string , phone:string) { 
     const usersCollection = collection(this.firestore, "users")
      addDoc(usersCollection, {
             userId: userId,
             username: username, 
             email: email,
             phone: phone,
+            favorites:[]
           })
+}
+  
+  addFavPost(post: Object) { 
+    const usersCollection = collection(this.firestore, "users")
+
+    addDoc(usersCollection, {
+      favorites:[post]
+    })
   }
+
+
+  removeFavPost(id:string , post:Object) { 
+    const documentInstance = doc(this.firestore, 'users', id)
+    
+  }
+  
 }

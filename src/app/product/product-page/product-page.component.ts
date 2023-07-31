@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
 
@@ -7,13 +8,23 @@ import { Product } from 'src/app/types/product';
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.css']
 })
-export class ProductPageComponent {
+export class ProductPageComponent implements OnInit {
 
-  get products() { 
-    return this.fire.productList
+  products: Observable<any> | undefined
+  
+  constructor(private fire: FireServiceService) {}
+
+  
+  addRemoveFavPost(post: Object) {
+    
+    this.fire.addFavPost(post)
   }
+  
 
-  constructor(private fire: FireServiceService) {
-    console.log(this.products)
+
+
+  ngOnInit(): void {
+    this.products = this.fire.getProducts();
+
   }
 }
