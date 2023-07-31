@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
 import { UserServicesService } from '../user-services.service'
 import { matchPassValidator } from 'src/app/validators/match-passwords-validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { matchPassValidator } from 'src/app/validators/match-passwords-validator
 })
 export class RegisterComponent {
   
-  constructor(private fb: FormBuilder, private userServices: UserServicesService) { }
+  constructor(private fb: FormBuilder, private userServices: UserServicesService , private router:Router) { }
     
   form = this.fb.group({
     username: ['' , [Validators.required , Validators.minLength(5)]],

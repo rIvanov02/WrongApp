@@ -31,14 +31,15 @@
           <li><a href="">Neshto si</a></li>
         </ul>
       </li>
-      <li><a href="#">about</a></li>
-      <li><a href="#">Pages</a></li>
+      <li><a href="/products">Products</a></li>
+      <li><a href="#">About</a></li>
       <li><a href="#">Gallery</a></li>
     </ul>
 
     <ul class="icons">
+      <li class='hello' *ngIf="isLoggedIn">Hello ,{{username}}</li>
       <li>
-        <a *ngIf="isLoggedIn">Hello ,{{username}}</a>
+        
         <a
           ><img src="../../../assets/images/user.jpg" />
           <ng-container *ngIf="!isLoggedIn">
@@ -50,7 +51,7 @@
             </ul>
           </ng-container>
           <ng-container *ngIf="isLoggedIn">
-            <ul [ngStyle]="{ left: '2em', 'padding-right': '2em' }">
+            <ul [ngStyle]="{ left: '-3.5em', 'padding-right': '2em' }">
               <ng-container *ngIf="!isLoggedIn">
                 <li class="user-login"><a routerLink="/login">Log in</a></li>
                 <li><a routerLink="/register">Register</a></li>

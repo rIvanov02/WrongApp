@@ -137,13 +137,11 @@ header .icons li a ul{
   
 }
 
-
-
-
-
-
-
-
+.hello{
+    font-size: 24px;
+    margin: 15px;
+    padding: 20px;
+}
 
 
 @media(max-width: 991px){

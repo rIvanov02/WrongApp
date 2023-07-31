@@ -1,29 +1,34 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { UserServicesService } from 'src/app/user/user-services.service';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   username:string|undefined
+  isLoggedIn:boolean=false
 
-  constructor(private userServices: UserServicesService, private router: Router) {
-    this.userServices.getUserData().then((user) => { 
+
+  constructor(private userServices: UserServicesService , private fire:FireServiceService) {
+    this.fire.getUserData().then((user) => { 
       this.username = user?.username
     })
-    console.log(this.username)
    }
   
-  get isLoggedIn(): boolean { 
-    return this.userServices.isLoggedIn
-  }
-
-  onLogout(): void { 
-    this.userServices.logout();
-    this.router.navigate([''])
+   
+   onLogout(): void { 
+     this.userServices.logout();
+    }
+    
+    
+  ngOnInit(): void {
+    if (localStorage.getItem('user')) { 
+      this.isLoggedIn=true
+    }
   }
 }
