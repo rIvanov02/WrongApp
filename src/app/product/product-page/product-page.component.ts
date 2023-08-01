@@ -15,9 +15,15 @@ export class ProductPageComponent implements OnInit {
   constructor(private fire: FireServiceService) {}
 
   
-  addRemoveFavPost(post: Object) {
+  onCheckboxChange(event:any , product:Product) {
+
+    const loggedUserId: string | undefined = localStorage.getItem('user')?.split('"')[3]
     
-    this.fire.addFavPost(post)
+    if (event.target.checked) {
+      this.fire.addFavProduct(product, loggedUserId!)
+    } else { 
+      this.fire.removeFavProduct(product, loggedUserId!)
+    }
   }
   
 

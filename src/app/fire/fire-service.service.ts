@@ -4,61 +4,67 @@ import { getDocs } from 'firebase/firestore';
 import { User } from '../types/user';
 import { Product } from '../types/product';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireServiceService {
 
-  constructor(private firestore: Firestore) {}
-//CRUD OPERATIONS
+  constructor(private firestore: Firestore, private firestore2: AngularFirestore) { }
+  //CRUD OPERATIONS
   
   getUserData() {
     const usersCollection = collection(this.firestore, "users")
-    return collectionData(usersCollection)
+    return collectionData(usersCollection, { idField: 'id' })
   }
   
-
-updateUserData(userId:string , newUsername:string , newEmail:string , newPhone:string) { 
-  const userDoc = doc(this.firestore, 'users', userId)
-  const updatedUserData = {
-    username: newUsername,
-    email: newEmail, 
-    phone:newPhone,
-  }
-  updateDoc(userDoc , updatedUserData)
-}
-  
-
-  
-getProducts() {
-  const productsCollection = collection(this.firestore, "products");
-  return collectionData(productsCollection)
-}
-  
-setUser(userId:string , username:string , email:string , phone:string) { 
+  setUser(userId: string, username: string, email: string, phone: string) {
     const usersCollection = collection(this.firestore, "users")
-     addDoc(usersCollection, {
-            userId: userId,
-            username: username, 
-            email: email,
-            phone: phone,
-            favorites:[]
-          })
-}
-  
-  addFavPost(post: Object) { 
-    const usersCollection = collection(this.firestore, "users")
-
     addDoc(usersCollection, {
-      favorites:[post]
+      userId: userId,
+      username: username,
+      email: email,
+      phone: phone,
+      favorites: []
+    })
+  }
+
+  updateUserData(docId: string, newUsername: string, newEmail: string, newPhone: string) {
+    const userDoc = doc(this.firestore, 'users', docId)
+    const updatedUserData = {
+      username: newUsername,
+      email: newEmail,
+      phone: newPhone,
+    }
+    updateDoc(userDoc, updatedUserData)
+  }
+  
+
+  //Product operations
+  getProducts() {
+    const productsCollection = collection(this.firestore, "products");
+    return collectionData(productsCollection)
+  }
+  
+  
+  //ADD AND REMOVE PRODUCT from favorites
+  addFavProduct(product: Object, userId: string) {
+    const userRef = this.firestore2.collection('users').doc<User>(userId).ref;
+    userRef.update({
+      favorites: firebase.firestore.FieldValue.arrayUnion(product)
+    })
+  }
+
+  removeFavProduct(product: Object, userId: string) {
+    const userRef = this.firestore2.collection('users').doc<User>(userId).ref;
+    userRef.update({
+      favorites: firebase.firestore.FieldValue.arrayRemove(product)
     })
   }
 
 
-  removeFavPost(id:string , post:Object) { 
-    const documentInstance = doc(this.firestore, 'users', id)
-    
-  }
-  
+
 }

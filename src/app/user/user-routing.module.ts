@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { AuthActivate } from '../guards/guard.activate';
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    
   },
   {
     path: 'register',
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthActivate]
   }
 
 ];

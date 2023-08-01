@@ -8,20 +8,19 @@ import { FireServiceService } from '../fire/fire-service.service';
   providedIn: 'root'
 })
 export class UserServicesService {
-  constructor(private firebase: AngularFireAuth, private router: Router , private fire:FireServiceService) {
+  constructor(private firebase: AngularFireAuth,
+    private router: Router,
+    private fire: FireServiceService,
+    
+  ) {
     
   }
-
-  isLoggedIn = false;
-
-
   // USER OPERATIONS
 
   async logIn(email: string, password: string) { 
     try {
      await this.firebase.signInWithEmailAndPassword(email, password)
        .then((res) => { 
-         this.isLoggedIn = true;
          localStorage.setItem('user' , JSON.stringify(res.user));
        })
        location.reload();
@@ -51,7 +50,6 @@ export class UserServicesService {
 
   async logout() { 
     await this.firebase.signOut();
-    this.isLoggedIn = false;
     localStorage.removeItem('user');
     this.router.navigate([''])
     location.reload();
