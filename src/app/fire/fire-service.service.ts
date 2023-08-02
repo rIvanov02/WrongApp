@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore , collection , addDoc , collectionData, DocumentData,doc,updateDoc } from '@angular/fire/firestore';
-import { getDocs } from 'firebase/firestore';
-import { User } from '../types/user';
-import { Product } from '../types/product';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Firestore , collection , addDoc , collectionData,doc,updateDoc } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
 @Injectable({
@@ -28,7 +23,7 @@ export class FireServiceService {
       username: username,
       email: email,
       phone: phone,
-      favorites: []
+      favorites:[]
     })
   }
 
@@ -38,6 +33,7 @@ export class FireServiceService {
       username: newUsername,
       email: newEmail,
       phone: newPhone,
+    
     }
     updateDoc(userDoc, updatedUserData)
   }
@@ -51,19 +47,16 @@ export class FireServiceService {
   
   
   //ADD AND REMOVE PRODUCT from favorites
-  addFavProduct(product: Object, userId: string) {
-    const userRef = this.firestore2.collection('users').doc<User>(userId).ref;
-    userRef.update({
-      favorites: firebase.firestore.FieldValue.arrayUnion(product)
+  updateLikedProducts(newData: Array<Object>, docId: string) {
+    debugger
+    const userDoc = doc(this.firestore, 'users', docId)
+    
+    updateDoc(userDoc, {
+      favorites: newData
     })
   }
 
-  removeFavProduct(product: Object, userId: string) {
-    const userRef = this.firestore2.collection('users').doc<User>(userId).ref;
-    userRef.update({
-      favorites: firebase.firestore.FieldValue.arrayRemove(product)
-    })
-  }
+  
 
 
 
