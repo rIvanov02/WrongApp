@@ -48,7 +48,7 @@ export class FireServiceService {
   
   //ADD AND REMOVE PRODUCT from favorites
   updateLikedProducts(newData: Array<Object>, docId: string) {
-    debugger
+    
     const userDoc = doc(this.firestore, 'users', docId)
     
     updateDoc(userDoc, {

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DocumentData } from '@angular/fire/compat/firestore';
 import { Observable, Subscription, findIndex } from 'rxjs';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
@@ -20,21 +21,22 @@ export class ProductPageComponent implements OnInit , OnDestroy {
   constructor(private fire: FireServiceService) {}
 
   
-  onCheckboxChange(event:any , product:any , docId:string) {
+  onCheckboxChange(event: any, product: any, docId: string) {
+    
+    let newData = undefined
     
     if (event.target.checked) {
-      const newData = this.userData!['favorites']!.concat([product])
-      this.fire.updateLikedProducts(newData,docId)
+       newData = this.userData!['favorites']!.concat([product])
     } else { 
-      if (this.userData!['favorites']!.length<=1) { 
-        this.userData!['favorites']!.splice(0,1)
+      const index = this.userData!['favorites']!.findIndex((element:DocumentData) =>element['docId']==product['docId'] )
+     
+        this.userData!['favorites']!.splice(index, 1)
+        newData =this.userData!['favorites']!
       }
-      const index = this.userData!['favorites']!.indexOf(product)
-      const newData = this.userData!['favorites']!.splice(index,1)
       this.fire.updateLikedProducts(newData, docId)
     }
 
-  }
+  
   
 
 

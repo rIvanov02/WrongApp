@@ -12,7 +12,8 @@ import { UserServicesService } from 'src/app/user/user-services.service';
 })
 export class HeaderComponent implements OnInit , OnDestroy {
 
-  username:string|undefined
+  username: string | undefined
+  userId:string| undefined
   isLoggedIn:boolean|undefined
   private subscription: Subscription|undefined
 
@@ -31,7 +32,9 @@ export class HeaderComponent implements OnInit , OnDestroy {
 
     this.subscription =this.fire.getUserData().subscribe((data) => { 
       this.username = data.find(element => element['userId'] == loggedUserId)!['username']
+      this.userId = data.find(element => element['userId'] == loggedUserId)!['userId']
     })
+    
   }
 
   ngOnDestroy(): void {

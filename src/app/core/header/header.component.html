@@ -57,14 +57,14 @@
                 <li><a routerLink="/register">Register</a></li>
               </ng-container>
               <ng-container *ngIf="isLoggedIn">
-                <li class="user-login"><a routerLink="/profile">Profile</a></li>
+                <li class="user-login"><a routerLink="/{{userId}}/profile">Profile</a></li>
                 <li><a (click)="onLogout()" routerLink="">Log out</a></li>
               </ng-container>
             </ul>
           </ng-container>
         </a>
         <ng-container *ngIf="isLoggedIn">
-          <a><img src="../../../assets/images/favIcon.jpg" /></a>
+          <a routerLink='{{userId}}/favorites'><img src="../../../assets/images/favIcon.jpg" /></a>
           <a><img src="../../../assets/images/basketIcon.jpg" /></a>
         </ng-container>
       </li>
