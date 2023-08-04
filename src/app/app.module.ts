@@ -12,6 +12,7 @@ import { getFirestore,provideFirestore } from '@angular/fire/firestore';
 import { environment } from './environment/environment.prod';
 import { ProductModule } from './product/product.module';
 import { FireServiceService } from './fire/fire-service.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { FireServiceService } from './fire/fire-service.service';
     BrowserModule,AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseDB),AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseDB)), provideFirestore(() => getFirestore()),
-    CoreModule,UserModule,ProductModule
+    CoreModule,UserModule,ProductModule, BrowserAnimationsModule
   ],
   providers:[FireServiceService],
   bootstrap: [AppComponent]

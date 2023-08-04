@@ -11,22 +11,16 @@
               <p class="card__title">{{product.name}}
                 <label class="ui-like">
                     <!-- TODO: MAKE EM CHECKED -->
-                    <ng-container *ngIf="userData!['favorites']!.includes(product)">
-                        <input type="checkbox" [checked]="true" (change)="onCheckboxChange($event , product ,userData!.id! )" [checked]="userData!['favorites']!.includes(product)">
-                    </ng-container>
-
-                    <ng-container *ngIf="!userData!['favorites']!.includes(product)">
-                        <input type="checkbox"  (change)="onCheckboxChange($event , product ,userData!.id! )">
-                    </ng-container>
-                    
-                    <div class="like">
+                        <input type="checkbox"  (change)="onCheckboxChange($event , product ,userData!.id! )"  [checked]="isChecked"/>
+                    <!-- TODO: MAKE EM CHECKED -->
+                        <div class="like">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"><path d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"></path></g></svg>
                        </div>
                   </label>
               </p>
               <p class="card__description">{{product.description}}</p>
              
-              <button class="btn">
+              <button class="btn" (click)="openDialog(product)">
                 <span class="icon">
                     <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
