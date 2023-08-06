@@ -1,0 +1,93 @@
+
+<div class = "card-wrapper">
+  <div class = "card">
+    <!-- card left -->
+    <div class = "product-imgs">
+      <div class = "img-display">
+        <div class = "img-showcase">
+          <img  src="{{ product!['img']![0] }}" >
+          <img  src="{{ product!['img']![1] }}" >
+          <img  src="{{ product!['img']![2] }}" >
+          <img  src="{{ product!['img']![3] }}" >
+        </div>
+      </div>
+      <div class = "img-select">
+        <div class = "img-item">
+          <a (click)="moveImage(0)">
+            <img src = "{{product!['img']![0]}}" >
+          </a>
+        </div>
+        <div class = "img-item">
+          <a (click)="moveImage(1)">
+            <img src = "{{product!['img']![1]}}" >
+          </a>
+        </div>
+        <div class = "img-item">
+          <a (click)="moveImage(2)">
+            <img src = "{{product!['img']![2]}}" >
+          </a>
+        </div>
+        <div class = "img-item">
+          <a (click)="moveImage(3)">
+            <img src = "{{product!['img']![3]}}" >
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- card right -->
+    <div class = "product-content">
+      <h2 class = "product-title">{{product!['name']}}</h2>
+     
+      <div class = "product-price">
+        <p class = "new-price">Price: <span>${{product!['price']}}</span></p>
+      </div>
+
+      <div class = "product-detail">
+        <h2>about this item: </h2>
+        <p>{{product!['description']}}</p>
+        <ul>
+          <li>Available: <span>in stock</span></li>
+          <li>Shipping Area: <span>All over the world</span></li>
+          <li>Shipping Fee: <span>Free</span></li>
+        </ul>
+      </div>
+
+      <div class = "purchase-info">
+        <select name="Size" id="selectMenu">
+          <option class="option" value="XS">XS</option>h
+          <option class="option" value="S">S</option>
+          <option class="option" value="M">M</option>
+          <option class="option" value="L">L</option>
+          <option class="option" value="XL">XL</option>
+      </select>
+        <button class="btn">
+          <span class="icon">
+              <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="40" width="40" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                </svg>
+          </span>
+          <span class="text">Add to Cart</span>
+      </button> 
+      </div>
+
+      <div class = "social-links">
+        <p>Follow At: </p>
+        <a href = "#">
+          <i class = "fab fa-facebook-f"></i>
+        </a>
+        <a href = "#">
+          <i class = "fab fa-twitter"></i>
+        </a>
+        <a href = "#">
+          <i class = "fab fa-instagram"></i>
+        </a>
+        <a href = "#">
+          <i class = "fab fa-whatsapp"></i>
+        </a>
+        <a href = "#">
+          <i class = "fab fa-pinterest"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,14 +5,16 @@ import { RouterModule } from '@angular/router';
 import { ProductRoutingModule } from './product-routing.module';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { MatDialogModule} from '@angular/material/dialog';
-import { PopUpDetailsComponent } from './pop-up-details/pop-up-details.component'
+import { PopUpDetailsComponent } from './pop-up-details/pop-up-details.component';
+import { DetailsPageComponent } from './details-page/details-page.component'
 
 
 @NgModule({
   declarations: [
     ProductPageComponent,
     FavoritesPageComponent,
-    PopUpDetailsComponent
+    PopUpDetailsComponent,
+    DetailsPageComponent
   ],
   imports: [
     CommonModule,RouterModule,ProductRoutingModule,MatDialogModule

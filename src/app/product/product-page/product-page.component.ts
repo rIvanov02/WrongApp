@@ -6,6 +6,7 @@ import { Product } from 'src/app/types/product';
 import { User } from 'src/app/types/user';
 import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PopUpDetailsComponent } from '../pop-up-details/pop-up-details.component';
+import { ProductServicesService } from '../product-services.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ProductPageComponent implements OnInit , OnDestroy {
   
 
 
-  constructor(private fire: FireServiceService , public dialog:MatDialog ) {}
+  constructor(private fire: FireServiceService , public dialog:MatDialog , private productService:ProductServicesService ) {}
 
   openDialog(product: Product) {
 
@@ -54,6 +55,7 @@ export class ProductPageComponent implements OnInit , OnDestroy {
     this.fire.updateLikedProducts(newData, docId)
     }
 
+ 
 
   ngOnInit(): void {
     this.products = this.fire.getProducts();
