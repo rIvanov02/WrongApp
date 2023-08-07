@@ -4,7 +4,7 @@ import { Observable, Subscription, findIndex } from 'rxjs';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
 import { User } from 'src/app/types/user';
-import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { PopUpDetailsComponent } from '../pop-up-details/pop-up-details.component';
 import { ProductServicesService } from '../product-services.service';
 

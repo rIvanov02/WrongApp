@@ -23,7 +23,8 @@ export class FireServiceService {
       username: username,
       email: email,
       phone: phone,
-      favorites:[]
+      favorites: [],
+      basket: [],
     })
   }
 
@@ -53,6 +54,15 @@ export class FireServiceService {
     
     updateDoc(userDoc, {
       favorites: newData
+    })
+  }
+
+  updateBasket(newData: Array<Object>, docId: string) {
+    
+    const userDoc = doc(this.firestore, 'users', docId)
+    
+    updateDoc(userDoc, {
+      basket: newData
     })
   }
 

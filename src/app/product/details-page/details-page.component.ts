@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-details-page',
   templateUrl: './details-page.component.html',
@@ -14,7 +15,11 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
   product: Product | undefined;
   subscription: Subscription|undefined
   
-  constructor(private productService: ProductServicesService , private fire : FireServiceService , private activatedRoute:ActivatedRoute)  { }
+  constructor(private productService: ProductServicesService,
+    private fire: FireServiceService, private activatedRoute: ActivatedRoute,
+    private toastr: ToastrService
+  ) { }
+  
   
   images = {
     img: [
@@ -32,6 +37,15 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
     if (imgToShowcase && imgToMove) {
       const clonedImg = imgToMove.cloneNode(true) as HTMLImageElement;
       imgToShowcase.insertBefore(clonedImg, imgToShowcase.firstChild);
+    }
+  }
+  addToBasket(product: Product): void{ 
+   
+    try {
+      this.productService.addProductInBasket(product)
+      this.toastr.success('Product added successfully')
+    } catch (error) {
+      this.toastr.error('Something went wrong')
     }
   }
 

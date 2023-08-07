@@ -3,6 +3,7 @@ import { FormBuilder,Validators } from '@angular/forms';
 import { UserServicesService } from '../user-services.service'
 import { matchPassValidator } from 'src/app/validators/match-passwords-validator';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   
-  constructor(private fb: FormBuilder, private userServices: UserServicesService , private router:Router) { }
+  constructor(private fb: FormBuilder, private userServices: UserServicesService , private router:Router ,  private toastr: ToastrService) { }
     
   form = this.fb.group({
     username: ['' , [Validators.required , Validators.minLength(5)]],
@@ -37,5 +38,6 @@ export class RegisterComponent {
       return;
     }
     this.userServices.register(username!, email!, phone!, password!)
+    this.toastr.success('Successfully registered')
   }
 }

@@ -1,23 +1,31 @@
 <div class="closeBtn1">
     <button class="noselect" (click)="close()">
-        <span class="text">Close</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        <span class="text">Close</span><span class="icon"><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24">
                 <path
-                    d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
-                </path>
-            </svg></span>
+                    d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span>
     </button>
 </div>
 
 <div *ngIf="product!['img']!.length > 0" class="carousel-container">
-    <img *ngFor="let image of product!['img']; let i = index" [src]="image"
-        [ngClass]="{ 'image-active': selectedIndex === i }" class="fade" />
+    <img
+        *ngFor="let image of product!['img']; let i = index"
+        [src]="image"
+        [ngClass]="{ 'image-active': selectedIndex === i }"
+        class="fade" />
 
     <div *ngIf="controls" class="btn-carousel btn-prev">
-        <i (click)="onNextClick()" class="fa-solid fa-circle-chevron-right icon-carousel icon-prev"></i>
+        <i
+            (click)="onNextClick()"
+            class="fa-solid fa-circle-chevron-right icon-carousel icon-prev"></i>
     </div>
     <div class="btn-carousel2">
-        <i (click)="onPrevClick()" class="fa-solid fa-circle-chevron-left icon-carousel icon-prev"></i>
+        <i
+            (click)="onPrevClick()"
+            class="fa-solid fa-circle-chevron-left icon-carousel icon-prev"></i>
     </div>
 </div>
 
@@ -28,19 +36,27 @@
 
 <div class="size">
     <select name="Size" id="selectMenu">
-        <option class="option" value="XS">XS</option>h
+        <option class="option" value="XS">XS</option>
+        h
         <option class="option" value="S">S</option>
         <option class="option" value="M">M</option>
         <option class="option" value="L">L</option>
         <option class="option" value="XL">XL</option>
     </select>
 
-    <button class="btn">
+    <button class="btn" (click)="addInBasket(product!)">
         <span class="icon">
-            <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="40" width="40" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-              </svg>
+            <svg
+                viewBox="0 0 16 16"
+                class="bi bi-cart2"
+                fill="currentColor"
+                height="40"
+                width="40"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+            </svg>
         </span>
         <span class="text">Add to Cart</span>
-    </button> 
+    </button>
 </div>

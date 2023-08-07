@@ -13,18 +13,22 @@ import { environment } from './environment/environment.prod';
 import { ProductModule } from './product/product.module';
 import { FireServiceService } from './fire/fire-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BasketComponent } from './basket/basket.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    BasketComponent,
   ],
   imports: [
     BrowserModule,AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseDB),AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseDB)), provideFirestore(() => getFirestore()),
-    CoreModule,UserModule,ProductModule, BrowserAnimationsModule
+    CoreModule, UserModule, ProductModule, BrowserAnimationsModule,
+    ToastrModule.forRoot(), 
   ],
   providers:[FireServiceService],
   bootstrap: [AppComponent]

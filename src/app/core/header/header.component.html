@@ -65,7 +65,7 @@
         </a>
         <ng-container *ngIf="isLoggedIn">
           <a routerLink='{{userId}}/favorites'><img src="../../../assets/images/favIcon.jpg" /></a>
-          <a><img src="../../../assets/images/basketIcon.jpg" /></a>
+          <a routerLink="{{userId}}/basket"><img src="../../../assets/images/basketIcon.jpg" /></a>
         </ng-container>
       </li>
     </ul>
