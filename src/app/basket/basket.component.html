@@ -1,57 +1,61 @@
-<div class="empty" *ngIf="products!.length<1">
-    <div class="emptyInfo">
-        <h4>No added products yet</h4>
-        <a routerLink="/products" class="btn btn-success">Start shopping</a>
-    </div>
+<div class="empty" *ngIf="products!.length < 1">
+  <div class="emptyInfo">
+    <h4>No added products yet</h4>
+    <a routerLink="/products" class="btn btn-success">Start shopping</a>
+  </div>
 </div>
 
-<ng-container *ngIf="products!.length>0">
-    <div class="basket">
-       
-            <div class="cart" *ngFor="let product of products ">
-                <div class="productInfo1">
-                    <div class="imgBox">
-                        <img src="{{product!['img']![0]}}" class="img">
-                    </div>
-                    <div class="info">
-                        <h3>{{product['name']}}</h3>
-                        <h4>{{product['description']}}</h4>
-                        <h4>{{product['size']}}</h4>
-                        <button class="button" (click)="onDelete(product , products)">
-                            <svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg>
-                          </button>
-                    </div>
-                </div>
-                <div class="price">
-                    {{product['price']|currency}}
-                </div>
-        
-        </div>
+<ng-container *ngIf="products!.length > 0">
+  <div class="basket">
+    <div class="cart" *ngFor="let product of products">
+      <div class="productInfo1">
+        <a routerLink="/{{ product!['docId'] }}">
+          <div class="imgBox">
+            <img src="{{ product!['img']![0] }}" class="img" />
+          </div>
+        </a>
 
-        <div class="checkOut">
-            <div class="subtotal">
-                <p >Subtotal:</p>
-                <p >BGN {{price}}</p>
-            </div>
-            <div class="delivery"> 
-                <p >Delivery:</p>
-                <p >BGN 0.00</p>
-            </div>
-            
-            <hr>
-            <div class="total">
-                <p>Total:</p>
-                <p>BGN {{calculateTotalPrice()}}</p>
-            </div>
-            <a routerLink="" (click)="createOrdersList()">
-                <div class="scene">
-                    <div class="cube">
-                      <span class="side top">Thank you</span>
-                      <span class="side front">Check Out</span>
-                    </div>
-                  </div>
-            </a>
+        <div class="info">
+          <h3>{{ product["name"] }}</h3>
+          <h4>{{ product["description"] }}</h4>
+          <h4>{{ product["size"] }}</h4>
+          <button class="button" (click)="onDelete(product, products)">
+            <svg viewBox="0 0 448 512" class="svgIcon">
+              <path
+                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+              ></path>
+            </svg>
+          </button>
         </div>
-
+      </div>
+      <div class="price">
+        {{ product["price"] | currency }}
+      </div>
     </div>
+
+    <div class="checkOut">
+      <div class="subtotal">
+        <p>Subtotal:</p>
+        <p>BGN {{ price }}</p>
+      </div>
+      <div class="delivery">
+        <p>Delivery:</p>
+        <p>BGN 0.00</p>
+      </div>
+
+      <hr />
+      <div class="total">
+        <p>Total:</p>
+        <p>BGN {{ calculateTotalPrice() }}</p>
+      </div>
+      <a routerLink="" (click)="createOrdersList()">
+        <div class="scene">
+          <div class="cube">
+            <span class="side top">Thank you</span>
+            <span class="side front">Check Out</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </ng-container>
