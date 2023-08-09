@@ -25,18 +25,16 @@
 
 
 .cart{
-    margin-left: 10%;
-    width: 40%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    border: 2px solid #d9d9d9;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    box-shadow: 20px 10px 10px rgba(0, 0, 0, .1);
-    &:not(:last-child){border-bottom: inset 2px black;}
-
-   
+    margin-left: 10% !important;
+    width: 40% !important;
+    height: 300px !important;
+    display: flex !important;
+    align-items: center !important;
+    border: 2px solid #d9d9d9 !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    box-shadow: 20px 10px 10px rgba(0, 0, 0, .1) !important;
+    &:not(:last-child){border-bottom: inset 2px black !important;}
 }
 .checkOut{
    position: absolute;

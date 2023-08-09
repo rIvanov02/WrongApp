@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Firestore , collection , addDoc , collectionData,doc,updateDoc } from '@angular/fire/firestore';
+import { Firestore , collection , addDoc , collectionData,doc,updateDoc,getDoc } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import 'firebase/compat/firestore';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireServiceService {
 
-  constructor(private firestore: Firestore, private firestore2: AngularFirestore) { }
+  constructor(private firestore: Firestore, private firestore2: AngularFirestore ) { }
   //CRUD OPERATIONS
   
   getUserData() {
@@ -25,6 +27,7 @@ export class FireServiceService {
       phone: phone,
       favorites: [],
       basket: [],
+      orders: {},
     })
   }
 
@@ -64,10 +67,28 @@ export class FireServiceService {
     updateDoc(userDoc, {
       basket: newData
     })
+
+   
   }
 
+  async updateOrders(newData: any, docId: string) {
   
+    const userDoc = doc(this.firestore, 'users', docId)
+    const docSnapshot =  await getDoc(userDoc);
+    const currentOrders = docSnapshot!.data()!['orders']! || {};
+    
 
+    const orderId = Math.random().toString(26).slice()
+
+        const updatedOrders = {
+      ...currentOrders,
+      [orderId]: newData,
+    };
+
+    updateDoc(userDoc, {
+      orders:updatedOrders
+    })
+  }
 
 
 }

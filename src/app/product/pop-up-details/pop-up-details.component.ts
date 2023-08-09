@@ -30,9 +30,7 @@ export class PopUpDetailsComponent implements OnInit{
   }
 
   addInBasket(product: Product) { 
-    if (localStorage.getItem('user')) { 
-      this.router.navigate(['/login'])
-    }
+   
     try {
       this.productService.addProductInBasket(product)
       this.toaster.success('Product added successfully')

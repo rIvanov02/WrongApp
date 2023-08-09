@@ -6,4 +6,5 @@ export interface User {
     favorites?: Array<Object>;
     basket?: Array<Object>;
     id?: string;
+    orders?: any;
 }
