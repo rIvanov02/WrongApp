@@ -32,7 +32,6 @@
     align-items: center !important;
     border: 2px solid #d9d9d9 !important;
     justify-content: space-between !important;
-    flex-wrap: wrap !important;
     box-shadow: 20px 10px 10px rgba(0, 0, 0, .1) !important;
     &:not(:last-child){border-bottom: inset 2px black !important;}
 }
@@ -89,7 +88,7 @@
 .info h4{
     font-family: "Monotype Corsiva", cursive;
 }
-.productInfo{
+.productInfo1{
     display: flex;
     padding: 30px;
 }

@@ -5,6 +5,7 @@ import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { User } from 'src/app/types/user';
 @Component({
   selector: 'app-details-page',
   templateUrl: './details-page.component.html',
@@ -13,7 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 export class DetailsPageComponent implements OnInit , OnDestroy {
 
   product: Product | undefined;
-  subscription: Subscription|undefined
+  subscription: Subscription | undefined
+  userData:User|undefined
   
   constructor(private productService: ProductServicesService,
     private fire: FireServiceService, private activatedRoute: ActivatedRoute,
@@ -39,13 +41,15 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
       imgToShowcase.insertBefore(clonedImg, imgToShowcase.firstChild);
     }
   }
-  addToBasket(product: Product): void{ 
-   
+  addInBasket(product: Product) {
+    debugger
     try {
-      this.productService.addProductInBasket(product)
+      let newData = this.userData!['basket']!.concat([product])
+      this.fire.updateBasket(newData, this.userData!['id']!)
+
       this.toastr.success('Product added successfully')
     } catch (error) {
-      this.toastr.error('Something went wrong')
+      this.toastr.error("Something went wrong")
     }
   }
 
@@ -58,8 +62,12 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
      
    })
     
-  }
-  
+   const loggedUserId: string | undefined = (localStorage.getItem('user')?.split('"')[3])
+   this.fire.getUserData().subscribe((data) => {
+     this.userData = data.find(element => element['userId'] == loggedUserId)
+   });
+ }
+
   ngOnDestroy(): void {
     this.subscription!.unsubscribe();
   }
