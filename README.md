@@ -1,27 +1,55 @@
-# WrongApp
+Project Name: Wrong Generation 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+**Description**
 
-## Development server
+Welcome to the Wrong Generation E-Commerce Site! This project is a web application that showcases the differences between the old and the new generation through a unique collection of clothing and accessories. The brand "Wrong Generation" aims to bridge the gap between generations with its distinct and thought-provoking designs. The application is built using Firebase as the remote service and database, offering seamless functionality to users.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Features**
 
-## Code scaffolding
+Product Listings: Explore a diverse range of clothing and accessories that represent the contrast between the old and the new generation.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Product Details: Get in-depth information about each product, including its description, price, and visual representation.
 
-## Build
+Favorites: Curate your favorite products by adding them to your favorites list for easy access.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Shopping Basket: Collect products in your shopping basket for convenient purchasing. Review the items before proceeding to checkout.
 
-## Running unit tests
+Order History: Track and review your past orders. Keep a record of your shopping history within the application.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Profile Management: Personalize your profile information. Update your details such as name, contact information, and shipping address.
 
-## Running end-to-end tests
+**Technologies Used**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Frontend: Angular,TypeScript,HTML,CSS
+Backend: Firebase (Authentication, Realtime Database)
 
-## Further help
+**How to Use**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Product Page: Upon visiting the site, you'll be greeted with a selection of clothing and accessories that highlight the contrast between generations.
+
+Product Details: Click on a product to view its detailed information. You'll find the product description, price, and images to help you make an informed decision.
+
+Favorites: To add a product to your favorites, simply click the "Add to Favorites" button on the product detail page.
+
+Shopping Basket: Click the shopping basket icon to review the items you've added. You can modify quantities or remove items before proceeding to checkout.
+
+Checkout: Follow the checkout process to finalize your order. You'll be prompted to enter your shipping information.
+
+Order History: Access your order history on your profile page. Review past purchases and track orders.
+
+Profile: Click on the profile icon to access your user profile. Update your personal information and manage your account settings.
+
+**Installation**
+To run the project locally, follow these steps:
+
+Clone the repository: git clone https://github.com/your-username/wrong-generation-ecommerce.git
+Navigate to the project directory: cd wrong-generation-ecommerce
+Open the index.html file in your preferred web browser.
+
+**Credits**
+This project is developed and maintained by Robert Ivanov for SoftUni Angular course.
+Special thanks to Firebase for providing the backend services and database.
+
+
+Enjoy your shopping experience with Wrong Generation E-Commerce Site! 🛍️👕👖
+

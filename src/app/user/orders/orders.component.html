@@ -1,3 +1,5 @@
+
+
 <div class="headerDiv">
     <h1 class="myOrders">My Orders</h1>
 </div>
@@ -11,7 +13,7 @@
             </div>
             <div class="pictureBox">
                 <div class="picture" *ngFor="let product of order.value">
-                    <a routerLink="/{{ product!['docId'] }}"><img src="{{product.img!}}"></a>
+                    <a routerLink="/products/{{ product!['docId'] }}"><img class="product" src="{{product.img!}}"></a>
                     
                 </div>
             </div>

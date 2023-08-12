@@ -9,7 +9,7 @@
   <div class="basket">
     <div class="cart" *ngFor="let product of products">
       <div class="productInfo1">
-        <a routerLink="/{{ product!['docId'] }}">
+        <a routerLink="/products/{{ product!['docId'] }}">
           <div class="imgBox">
             <img src="{{ product!['img']![0] }}" class="img" />
           </div>

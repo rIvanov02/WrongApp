@@ -24,7 +24,8 @@ const routes: Routes = [
     path: ':userId/orders',
     component: OrdersComponent,
     canActivate: [AuthActivate],
-  }
+  },
+ 
 
 ];
 

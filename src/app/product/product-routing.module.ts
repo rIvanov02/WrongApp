@@ -16,9 +16,10 @@ const routes: Routes = [
     canActivate: [AuthActivate]
   },
   {
-    path: ':docId',
+    path: 'products/:docId',
     component: DetailsPageComponent
-  }
+  },
+ 
 
 ];
 

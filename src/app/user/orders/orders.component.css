@@ -10,6 +10,7 @@
     height: 250px;
     border-radius: 30px;
     margin-bottom:50px ;
+    margin-top: 50px;
 }
 .orderNumber{
     padding: 20px;
@@ -23,11 +24,11 @@
 .picture{
     width: 120px;
     height: 150px;
+    padding-left: 20px;
 }
-.picture img{
+.product{
     width: 120px;
     height: 150px;
-    padding-left: 20px;
     box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1);
    
 }
@@ -52,7 +53,4 @@
 .headerDiv{
     display: flex;
     justify-content: center;
-}
-.hr{
-    padding-bottom: 50px;
 }

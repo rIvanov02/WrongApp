@@ -7,6 +7,7 @@ import { User } from 'src/app/types/user';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { PopUpDetailsComponent } from '../pop-up-details/pop-up-details.component';
 import { ProductServicesService } from '../product-services.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ProductPageComponent implements OnInit , OnDestroy {
   
 
 
-  constructor(private fire: FireServiceService , public dialog:MatDialog , private productService:ProductServicesService ) {}
+  constructor(private fire: FireServiceService , public dialog:MatDialog , private productService:ProductServicesService, private router:Router) {}
 
   openDialog(product: Product) {
 
@@ -40,7 +41,6 @@ export class ProductPageComponent implements OnInit , OnDestroy {
    }
   
   onCheckboxChange(event: any, product: any, docId: string) {
-    
     let newData = undefined
     if (event.target.checked) {
       newData = this.userData!['favorites']!.concat([product])

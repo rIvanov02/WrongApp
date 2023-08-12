@@ -349,3 +349,6 @@ font-size: 24px;
     font-family: "Monotype Corsiva", cursive;
     padding: 20% 20% 20% 30%;
   }
+  .details{
+    height: 320px;
+  }

@@ -59,13 +59,13 @@
           <span class="text">Buy Now</span>
         </button>
 
-        <a routerLink="/{{product['docId']}}"
+        <a routerLink="/products/{{product['docId']}}"
           ><div class="details"></div
         ></a>
       </div>
     </div>
     <div class="info">
-      <p class="price">{{ product.price }}$</p>
+      <p class="price">{{ product.price.toFixed(2) }}$</p>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductServicesService } from '../product-services.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
 import { Subscription } from 'rxjs';
@@ -19,18 +19,9 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
   
   constructor(private productService: ProductServicesService,
     private fire: FireServiceService, private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService ,private router:Router
   ) { }
   
-  
-  images = {
-    img: [
-      'image1.jpg',
-      'image2.jpg',
-      'image3.jpg',
-      'image4.jpg'
-    ]
-  };
 
   moveImage(index: number): void {
     const imgToShowcase = document.querySelector('.img-showcase');
@@ -42,7 +33,10 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
     }
   }
   addInBasket(product: Product) {
-    debugger
+    if (!this.userData) { 
+      this.router.navigate(['/login'])
+      return
+    }
     try {
       let newData = this.userData!['basket']!.concat([product])
       this.fire.updateBasket(newData, this.userData!['id']!)
@@ -57,7 +51,10 @@ export class DetailsPageComponent implements OnInit , OnDestroy {
    
     let productId = this.activatedRoute.snapshot.paramMap.get('docId');
 
-   this.subscription=this.fire.getProducts().subscribe((product) => { 
+
+    this.subscription = this.fire.getProducts().subscribe((product) => { 
+      this.product = product.find((element) => element['docId'] == productId)
+      
      this.product = product.find((element)=> element['docId']==productId)
      
    })

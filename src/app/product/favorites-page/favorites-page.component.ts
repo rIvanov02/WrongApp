@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DocumentData } from '@angular/fire/compat/firestore';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { Product } from 'src/app/types/product';
 import { User } from 'src/app/types/user';
+import { PopUpDetailsComponent } from '../pop-up-details/pop-up-details.component';
 
 @Component({
   selector: 'app-favorites-page',
@@ -17,8 +19,22 @@ export class FavoritesPageComponent implements OnInit , OnDestroy {
   likedProducts:[]|undefined
   userData:User|undefined
   
-  constructor(private fire: FireServiceService) { }
+  constructor(private fire: FireServiceService ,public dialog:MatDialog) { }
 
+
+  openDialog(product: Product ) {
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.backdropClass='backDrop'
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = product;
+
+    let dialogRef = this.dialog.open(PopUpDetailsComponent, dialogConfig)
+  
+
+   }
 
   removeFavorite( id: string) { 
     

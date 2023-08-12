@@ -15,6 +15,7 @@ import { FireServiceService } from './fire/fire-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasketComponent } from './basket/basket.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -24,11 +25,13 @@ import { ToastrModule } from 'ngx-toastr';
     BasketComponent,
   ],
   imports: [
-    BrowserModule,AppRoutingModule,
+    BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseDB),AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseDB)), provideFirestore(() => getFirestore()),
     CoreModule, UserModule, ProductModule, BrowserAnimationsModule,
     ToastrModule.forRoot(), 
+    SharedModule,
+    AppRoutingModule
   ],
   providers:[FireServiceService],
   bootstrap: [AppComponent]

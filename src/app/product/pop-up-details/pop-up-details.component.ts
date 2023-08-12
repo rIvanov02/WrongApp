@@ -33,7 +33,11 @@ export class PopUpDetailsComponent implements OnInit , OnDestroy {
   }
 
   addInBasket(product: Product) {
-    debugger
+    if (!this.userData) { 
+      this.close()
+      this.router.navigate(['/login'])
+      return
+    }
     try {
       let newData = this.userData!['basket']!.concat([product])
       this.fire.updateBasket(newData, this.userData!['id']!)
