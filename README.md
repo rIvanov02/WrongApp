@@ -1,10 +1,10 @@
 Project Name: Wrong Generation 
 
-**Description**
+# Description
 
 Welcome to the Wrong Generation E-Commerce Site! This project is a web application that showcases the differences between the old and the new generation through a unique collection of clothing and accessories. The brand "Wrong Generation" aims to bridge the gap between generations with its distinct and thought-provoking designs. The application is built using Firebase as the remote service and database, offering seamless functionality to users.
 
-**Features**
+# Features
 
 Product Listings: Explore a diverse range of clothing and accessories that represent the contrast between the old and the new generation.
 
@@ -18,12 +18,12 @@ Order History: Track and review your past orders. Keep a record of your shopping
 
 Profile Management: Personalize your profile information. Update your details such as name, contact information, and shipping address.
 
-**Technologies Used**
+# Technologies Used
 
 Frontend: Angular,TypeScript,HTML,CSS
 Backend: Firebase (Authentication, Realtime Database)
 
-**How to Use**
+# How to Use
 
 Product Page: Upon visiting the site, you'll be greeted with a selection of clothing and accessories that highlight the contrast between generations.
 
@@ -39,14 +39,14 @@ Order History: Access your order history on your profile page. Review past purch
 
 Profile: Click on the profile icon to access your user profile. Update your personal information and manage your account settings.
 
-**Installation**
+# Installation
 To run the project locally, follow these steps:
 
 Clone the repository: git clone https://github.com/your-username/wrong-generation-ecommerce.git
 Navigate to the project directory: cd wrong-generation-ecommerce
 Open the index.html file in your preferred web browser.
 
-**Credits**
+# Credits
 This project is developed and maintained by Robert Ivanov for SoftUni Angular course.
 Special thanks to Firebase for providing the backend services and database.
 
