@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { BasketComponent } from './basket/basket.component';
 import { AuthActivate } from './guards/guard.activate';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { FinishedOrderComponent } from './finished-order/finished-order.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,12 @@ const routes: Routes = [
     path: ':userId/basket',
     component: BasketComponent,
     canActivate: [AuthActivate]
+  },
+  {
+    path: 'successful-order',
+    component: FinishedOrderComponent,
+    canActivate: [AuthActivate]
+    
   },
   {
     path: '**',

@@ -18,7 +18,7 @@ export class BasketComponent implements OnInit ,OnDestroy {
   userData: User | undefined
   price: number=0
 
-  constructor(private fire: FireServiceService, private toaster: ToastrService) {}
+  constructor(private fire: FireServiceService, private toaster: ToastrService ) {}
   
   calculateTotalPrice() {
     this.price = 0; 
@@ -37,7 +37,9 @@ export class BasketComponent implements OnInit ,OnDestroy {
     const emptyBasket:Array<Object> =[]
     
     this.fire.updateOrders(newData, this.userData!['id']!);
-    this.fire.updateBasket(emptyBasket , this.userData!['id']!)
+    this.fire.updateBasket(emptyBasket, this.userData!['id']!)
+    
+
 
   }
   

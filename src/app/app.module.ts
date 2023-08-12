@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasketComponent } from './basket/basket.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
+import { FinishedOrderComponent } from './finished-order/finished-order.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     HomeComponent,
     BasketComponent,
+    FinishedOrderComponent,
   ],
   imports: [
     BrowserModule,

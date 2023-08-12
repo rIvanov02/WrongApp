@@ -1,0 +1,13 @@
+.errorDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    background: black;
+  }
+  .errorDiv h1 {
+    font-size: 80px;
+    font-family: "Vast Shadow", cursive;
+    letter-spacing: 7px;
+    color: white;
+  }
