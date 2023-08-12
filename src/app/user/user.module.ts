@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component'
 import { UserRoutingModule } from './user-routing.module';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -14,7 +15,8 @@ import { UserRoutingModule } from './user-routing.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,RouterModule,FormsModule,ReactiveFormsModule,UserRoutingModule

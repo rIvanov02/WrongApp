@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthActivate } from '../guards/guard.activate';
+import { OrdersComponent } from './orders/orders.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -18,6 +19,11 @@ const routes: Routes = [
     path: ':userId/profile',
     component: ProfileComponent,
     canActivate: [AuthActivate]
+  },
+  {
+    path: ':userId/orders',
+    component: OrdersComponent,
+    canActivate: [AuthActivate],
   }
 
 ];

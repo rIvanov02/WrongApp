@@ -1,200 +1,199 @@
-.basket{
-    justify-content: center;
-    align-items: center;
+.basket {
+  justify-content: center;
+  align-items: center;
 }
-.empty{
-    height: 70vh;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
+.empty {
+  height: 70vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
-.emptyInfo h4{
+.emptyInfo h4 {
   font-size: 50px;
   padding-bottom: 50px;
   letter-spacing: 10px;
 }
-.emptyInfo a{
+.emptyInfo a {
   font-size: 30px;
   background: #33ffad;
   text-decoration: none;
   padding: 15px;
   border-radius: 35px;
-  color:  black
+  color: black;
 }
 
+.cart {
+  margin-left: 10% !important;
+  width: 40% !important;
+  height: 300px !important;
+  display: flex !important;
+  align-items: center !important;
+  border: 2px solid #d9d9d9 !important;
+  justify-content: space-between !important;
+  box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1) !important;
+  &:not(:last-child) {
+    border-bottom: inset 2px black !important;
+  }
+}
+.checkOut {
+  position: absolute;
+  right: 400px;
+  top: 300px;
+  height: 320px;
+  width: 600px;
+  border: 2px solid #d9d9d9;
+  box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 25px;
+}
+.delivery {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 17px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.price {
+  font-size: 25px;
+  padding-top: 180px;
+  padding-right: 25px;
+}
+.imageBox {
+  flex: 0 0 6rem;
+  height: inherit;
+}
+.img {
+  width: 150px;
+  height: 200px;
+}
 
-.cart{
-    margin-left: 10% !important;
-    width: 40% !important;
-    height: 300px !important;
-    display: flex !important;
-    align-items: center !important;
-    border: 2px solid #d9d9d9 !important;
-    justify-content: space-between !important;
-    box-shadow: 20px 10px 10px rgba(0, 0, 0, .1) !important;
-    &:not(:last-child){border-bottom: inset 2px black !important;}
+.info {
+  padding-left: 25px;
 }
-.checkOut{
-   position: absolute;
-   right: 400px;
-   top:300px;
-    height: 300px;
-    width: 600px;
-    border: 2px solid #d9d9d9;
-    box-shadow: 20px 10px 10px rgba(0, 0, 0, .1);
+.info h3 {
+  font-size: 30px;
+  font-family: "Vast Shadow", cursive;
 }
-.subtotal{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    font-size: 25px;
+.info h4 {
+  font-family: "Monotype Corsiva", cursive;
 }
-.delivery{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    font-size: 17px;
-}
-.total{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    font-size: 30px;
-    font-weight: bold;
-}
-.price{
-    font-size: 25px;
-    padding-top: 180px;
-    padding-right: 25px;
-}
-.imageBox{
-    flex: 0 0 6rem;
-    height: inherit;
-}
-.img{
-    width: 150px;
-    height: 200px;
-}
-
-.info{
-    padding-left: 25px;
-
-}
-.info h3{
-    font-size: 30px;
-    font-family: 'Vast Shadow', cursive;
-}
-.info h4{
-    font-family: "Monotype Corsiva", cursive;
-}
-.productInfo1{
-    display: flex;
-    padding: 30px;
+.productInfo1 {
+  display: flex;
+  padding: 30px;
 }
 .button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-    cursor: pointer;
-    transition-duration: .3s;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .svgIcon {
-    width: 12px;
-    transition-duration: .3s;
-  }
-  
-  .svgIcon path {
-    fill: white;
-  }
-  
-  .button:hover {
-    width: 140px;
-    border-radius: 50px;
-    transition-duration: .3s;
-    background-color: rgb(255, 69, 69);
-    align-items: center;
-  }
-  
-  .button:hover .svgIcon {
-    width: 50px;
-    transition-duration: .3s;
-    transform: translateY(60%);
-  }
-  
-  .button::before {
-    position: absolute;
-    top: -20px;
-    content: "Delete";
-    color: white;
-    transition-duration: .3s;
-    font-size: 2px;
-  }
-  
-  .button:hover::before {
-    font-size: 13px;
-    opacity: 1;
-    transform: translateY(30px);
-    transition-duration: .3s;
-  }
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
 
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
 
-  /* //checkOut */
+.svgIcon path {
+  fill: white;
+}
 
-  .scene {
-    width: 500px;
-    justify-content: center;
-    align-items: center;
-    padding-left:50px;
-   }
-   
-   .cube {
-    color: #ccc;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
-    transform-style: preserve-3d;
-    transform-origin: 100% 50%;
-    width: 500px;
-    height: 4em;
-   }
-   
-   .cube:hover {
-    transform: rotateX(-90deg);
-   }
-   
-   .side {
-    box-sizing: border-box;
-    position: absolute;
-    display: inline-block;
-    height: 4em;
-    width:500px;
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: 1.5em;
-    font-weight: bold;
-   }
-   
-   .top {
-    background: #33ffad;
-    color: #222229;
-    transform: rotateX(90deg) translate3d(0, 0, 2em);
-    box-shadow: inset 0 0 0 5px #fff;
-   }
-   
-   .front {
-    background: #222229;
-    color: #fff;
-    box-shadow: inset 0 0 0 5px #fff;
-    transform: translate3d(0, 0, 2em);
-   }
+.button:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.button:hover .svgIcon {
+  width: 50px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+}
+
+.button::before {
+  position: absolute;
+  top: -20px;
+  content: "Delete";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.button:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: 0.3s;
+}
+
+/* //checkOut */
+
+.scene {
+  width: 500px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.cube {
+  color: #ccc;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.85s cubic-bezier(0.17, 0.67, 0.14, 0.93);
+  transform-style: preserve-3d;
+  transform-origin: 100% 50%;
+  width: 500px;
+  height: 4em;
+}
+
+.cube:hover {
+  transform: rotateX(-90deg);
+}
+
+.side {
+  box-sizing: border-box;
+  position: absolute;
+  display: inline-block;
+  height: 4em;
+  width: 500px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 1.5em;
+  font-weight: bold;
+}
+
+.top {
+  background: #33ffad;
+  color: #222229;
+  transform: rotateX(90deg) translate3d(0, 0, 2em);
+  box-shadow: inset 0 0 0 5px #fff;
+}
+
+.front {
+  background: #222229;
+  color: #fff;
+  box-shadow: inset 0 0 0 5px #fff;
+  transform: translate3d(0, 0, 2em);
+}

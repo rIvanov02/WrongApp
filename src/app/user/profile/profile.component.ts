@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit  } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, Subscription } from 'rxjs';
 import { FireServiceService } from 'src/app/fire/fire-service.service';
 import { User } from 'src/app/types/user';
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit , OnDestroy{
   userData:User|undefined
  
  
-  constructor(private fb: FormBuilder, private fire: FireServiceService) {}
+  constructor(private fb: FormBuilder, private fire: FireServiceService , private toastr:ToastrService) {}
 
   ngOnInit(): void {
     const loggedUserId: string | undefined = (localStorage.getItem('user')?.split('"')[3])
@@ -44,8 +45,12 @@ export class ProfileComponent implements OnInit , OnDestroy{
       return;
     }
     const { username, email, phone } = this.form.value;
-
-    this.fire.updateUserData(this.userData!.id!,username!, email!, phone!)
-   
+    try {
+      this.fire.updateUserData(this.userData!.id!,username!, email!, phone!)
+   this.toastr.success('User updated successfully')
+    } catch (error) {
+      this.toastr.error('Something went wrong')
+    }
+    
   }
 }

@@ -27,7 +27,7 @@ export class BasketComponent implements OnInit ,OnDestroy {
         this.price += Number(item.price);
       }
     }
-    return this.price;
+    return this.price.toFixed(2)
   }
   
   createOrdersList() {
@@ -60,8 +60,6 @@ export class BasketComponent implements OnInit ,OnDestroy {
     this.subscription = this.fire.getUserData().subscribe((data) => {
       this.userData = data.find(element => element['userId'] == loggedUserId)
       this.products = this.userData!['basket']
-     
-      
     });
    
    

@@ -1,0 +1,20 @@
+<div class="headerDiv">
+    <h1 class="myOrders">My Orders</h1>
+</div>
+<hr class="hr">
+<div class="justContainer">
+   <div class="spawn">
+        <div class="order" *ngFor="let order of orders|keyvalue ; let i=index">
+            <div class="info">
+                <h1 class="orderNumber">Order № {{i+1}}</h1>
+                <h2 class="price">BGN {{calculatePrice(order.value)}}</h2>
+            </div>
+            <div class="pictureBox">
+                <div class="picture" *ngFor="let product of order.value">
+                    <a routerLink="/{{ product!['docId'] }}"><img src="{{product.img!}}"></a>
+                    
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
