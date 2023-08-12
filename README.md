@@ -21,6 +21,7 @@ Profile Management: Personalize your profile information. Update your details su
 # Technologies Used
 
 Frontend: Angular,TypeScript,HTML,CSS
+
 Backend: Firebase (Authentication, Realtime Database)
 
 # How to Use
